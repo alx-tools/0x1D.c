@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "listint.h"
+#include "search_algos.h"
 
 /**
  * print_list - Prints the content of a listint_t

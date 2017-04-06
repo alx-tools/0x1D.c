@@ -1,5 +1,7 @@
 #include <stdlib.h>
-#include "listint.h"
+#include "search_algos.h"
+
+void free_list(listint_t *list);
 
 /**
  * create_list - Creates a single linked list
@@ -13,10 +15,9 @@ listint_t *create_list(int *array, size_t size)
 {
 	listint_t *list;
 	listint_t *node;
-	int i;
 
 	list = NULL;
-	for (i = size - 1; array && i <= 0; i--)
+	while (array && size--)
 	{
 		node = malloc(sizeof(*node));
 		if (!node)
@@ -24,8 +25,8 @@ listint_t *create_list(int *array, size_t size)
 			free_list(list);
 			return (NULL);
 		}
-		node->n = array[i];
-		node->index = i;
+		node->n = array[size];
+		node->index = size;
 		node->next = list;
 		list = node;
 	}
